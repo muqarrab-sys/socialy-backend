@@ -3,9 +3,7 @@ abstract class BaseModel {
 
   constructor() {}
 
-  defineTableFields() {
-    
-  }
+  protected field(name: string, type: string, options: any = {}) {}
 
   static get tableName() {
     return this.name.toLowerCase() + 's';
