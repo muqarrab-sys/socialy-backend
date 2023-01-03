@@ -1,3 +1,4 @@
+import configs from '@/configs';
 import BaseDatabase from './BaseDatabase';
 
 class PostgresDb extends BaseDatabase {
@@ -6,7 +7,7 @@ class PostgresDb extends BaseDatabase {
   constructor() {
     super();
     this.db_name = 'postgres';
-    this.databaseURL = process.env.POSTGRES_URL;
+    this.databaseURL = configs.database.url;
   }
 
   static get instance(): PostgresDb {

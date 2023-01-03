@@ -1,13 +1,10 @@
-require('dotenv').config();
-
 import App from './App';
-import RouteBuilder from './routes/Routes.builder';
+import RoutersBuilder from './routes/Routers.builder';
 import ModelsBuilder from './models/Models.builder';
 import { ModelCtor } from 'sequelize-typescript';
+import 'reflect-metadata';
 
-const routes = new RouteBuilder().getModules();
-const models = new ModelsBuilder().getModules() as unknown as Array<ModelCtor>;
+const routers = new RoutersBuilder().modules;
+const models = new ModelsBuilder().modules as unknown as Array<ModelCtor>;
 
-const app = new App(routes, models);
-
-app.start();
+new App(routers, models).start();

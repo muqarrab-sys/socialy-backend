@@ -1,11 +1,11 @@
 import fs from 'fs';
 
-class DirBuilder<T> {
-  protected modules: Array<T> = [];
+abstract class DirBuilder<T> {
+  protected modulesArray: Array<T> = [];
   protected FILE_POSTFIX: Array<string> = [];
 
-  getModules(): Array<T> {
-    return this.modules;
+  get modules(): Array<T> {
+    return this.modulesArray;
   }
 
   protected build(dir: string): void {
@@ -15,7 +15,7 @@ class DirBuilder<T> {
       if (fs.statSync(filePath).isDirectory()) {
         this.build(filePath);
       } else if (this.FILE_POSTFIX.some(postfix => file.endsWith(postfix))) {
-        this.modules.push(require(filePath).default);
+        this.modulesArray.push(require(filePath).default);
       }
     });
   }
