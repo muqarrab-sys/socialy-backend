@@ -32,7 +32,7 @@
     "@types/morgan": "^1.9.3",
     "@types/node": "^18.11.18",
     "@types/uuid": "^9.0.0",
-    "@types/validator": "^13.7.10",
+    "@types/validator": "^13.7.11",
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2",
